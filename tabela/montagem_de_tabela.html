@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, td{
+            border: #666 1px solid;
+            border-collapse: collapse;
+        }
+        td {
+            width: 100px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            function montaTabela(){
+                var l=parseInt(document.querySelector("#qlinhas").value);
+                var c=parseInt(document.querySelector("#qcolunas").value);
+                var minhaTab = document.querySelector("#minhaTabela");
+                var txt="";
+                for(var i=0;i<l;i++){
+                    txt+="<tr>";
+                    for(var j=0;j<c;j++){
+                        txt+="<td>"+i+";"+j+"</td>";
+                    }
+                    txt+="</td>";
+                } 
+                minhaTab.innerHTML= txt;
+            }
+            var botaoTab=document.querySelector("#btnTab");
+                botaoTab.addEventListener("click", montaTabela);
+            var botaoLimp = document.querySelector("#btnLimp");
+                botaoLimp.addEventListener("click", ()=>{
+                    document.querySelector("#minhaTabela").innerHTML="";
+                })
+        })
+    </script>
+</head>
+<body>
+    <h1>
+        Montar Tabela
+    </h1>
+    <input type="text" name="qlinhas" id="qlinhas">
+    <input type="text" name="qcolunas" id="qcolunas">
+    <button type="button" name="btnTab" id="btnTab">Montar Tabela</button>
+    <button type="button" name="btnLimp" id="btnLimp">Limpar Tabela</button>
+    <br><br>
+    <table id="minhaTabela"></table>
+</body>
+</html>
